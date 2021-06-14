@@ -5,26 +5,16 @@
 import socket
 
 
-class COMSSERVER:
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind((socket.gethostname(), 2055))
+s.listen(5)
 
-    def ComsInit(message):
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.bind((socket.gethostname(), 30))
-        s.listen(5)
-        while True:
-                clt, adr = s.accept()
-                print(f"connection to {adr} established")
-                clt.send(bytes(f"socket programming in python", "utf-8"))
-                msg = s.recv(32)
-
-    def recieveInformation(self,LISTOFINFO):
-        while ms != 'hi':
-            msg = s.recv(32)
-            ms = msg.decode("utf-8")
-        return True
-
-
-serv = COMSSERVER.ComsInit('connected')
-
-if (serv.recieveInformation()):
-    print('message recieved')
+while True:
+    clt, adr = s.accept()
+    print(f"connection to {adr} established")
+    clt.send(bytes(f"socket programming in python", "utf-8"))
+    while True:
+        msg=clt.recv(32)
+        resvmsg=(msg.decode("utf-8"))
+        print(resvmsg)
+    

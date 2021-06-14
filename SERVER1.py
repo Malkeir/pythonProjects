@@ -9,7 +9,7 @@ class COMSSERVER:
 
     def ComsInit(message):
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.bind((socket.gethostname(), 30))
+        s.bind((socket.gethostname(), 55))
         s.listen(5)
         while True:
                 clt, adr = s.accept()

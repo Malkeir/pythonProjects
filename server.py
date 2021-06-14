@@ -17,4 +17,5 @@ while True:
         msg=clt.recv(32)
         resvmsg=(msg.decode("utf-8"))
         print(resvmsg)
+        clt.send(bytes(resvmsg, "utf-8"))
     

@@ -7,7 +7,7 @@ import socket
 
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((socket.gethostname(), 2055))
+s.connect(('192.168.1.16', 30))
 
 clientUserName = input('userName: ')
 
